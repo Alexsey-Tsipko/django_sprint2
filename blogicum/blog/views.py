@@ -50,9 +50,8 @@ def index(request):
     return render(request, 'blog/index.html', context={'posts': reversed_posts})
 
 
-def post_detail(request, post_id):
-    post = get_object_or_404(posts, id=post_id)
-    return render(request, 'blog/detail.html', {'post': post})
+def post_detail(request, id):
+    return render(request, 'blog/detail.html', {'posts': id})
 
 
 def category_posts(request, category_slug):
