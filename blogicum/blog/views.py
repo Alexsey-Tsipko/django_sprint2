@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.shortcuts import get_object_or_404
 
 posts = [
     {
@@ -47,16 +46,19 @@ posts = [
 
 def index(request):
     reversed_posts = posts[::-1]
-    return render(request, 'blog/index.html', context={'posts': reversed_posts})
+    return render(request, 'blog/index.html',
+                  context={'posts': reversed_posts})
 
 
 def post_detail(request, id):
     list_v = list(posts[id].values())
-    return render(request, 'blog/detail.html', context={'location': list_v[1],
-                                                        'date': list_v[2],
-                                                        'category': list_v[3],
-                                                        'text': list_v[4],})
+    return render(request, 'blog/detail.html',
+                  context={'location': list_v[1],
+                  'date' : list_v[2],
+                  'category': list_v[3],
+                  'text': list_v[4],})
 
 
 def category_posts(request, category_slug):
-    return render(request, 'blog/category.html', context={'posts': category_slug})
+    return render(request, 'blog/category.html',
+                  context={'posts': category_slug})
