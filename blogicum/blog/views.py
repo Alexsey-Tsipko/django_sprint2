@@ -51,7 +51,11 @@ def index(request):
 
 
 def post_detail(request, id):
-    return render(request, 'blog/detail.html', {'posts': id})
+    list_v = list(posts[id].values())
+    return render(request, 'blog/detail.html', context={'location': list_v[1],
+                                                        'date': list_v[2],
+                                                        'category': list_v[3],
+                                                        'text': list_v[4],})
 
 
 def category_posts(request, category_slug):
