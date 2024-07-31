@@ -66,4 +66,3 @@ def category_posts(request, category_slug):
     context = {'category': category_slug,
                'posts': sorted_posts}
     return render(request, 'blog/category.html', context)
-
