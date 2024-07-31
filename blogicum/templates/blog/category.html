@@ -1,12 +1,9 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
 {% load static %}
-<html lang="ru"> 
-    <main>
-      {% block content %}
-      <div class="container py-5">
-        <h1>Публикации в категории - {{ category }}</h1>
-      </div>
-      {% endblock %}
-    </main>
-</html>
+{% block title %} {{ category }} {% endblock %}
+{% block content %}
+  <h1>Публикации в категории - {{ category }}</h1>
+  {% if posts %}
+    {% include "includes/main_post.html" %}
+  {% endif %}
+{% endblock %}

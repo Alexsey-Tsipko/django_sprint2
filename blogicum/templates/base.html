@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% load static %}
 <html lang="ru">
   <head>
@@ -9,15 +8,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/favicon-16x16.png' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>Лента записей</title>
+    <title>{% block title %} Лента записей {% endblock %}</title>
   </head>
   <body>
     {% include "includes/header.html" %}
     <main>
-      {% block content %}
       <div class="container py-5">
-        <h1>Лента записей</h1>
-      {% endblock %}
+        {% block content %} Контент {% endblock %}
       </div>
     </main>
     {% include "includes/footer.html" %}

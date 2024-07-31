@@ -47,9 +47,8 @@ posts = [
 
 
 def index(request):
-    reversed_posts = posts[::-1]
     return render(request, 'blog/index.html',
-                  context={'posts': reversed_posts})
+                  context={'posts': posts})
 
 
 def post_detail(request, id):
@@ -61,7 +60,7 @@ def post_detail(request, id):
 
 
 def category_posts(request, category_slug):
-    sorted_posts = [post for post in posts if post['category_posts']
+    sorted_posts = [post for post in posts if post['category']
                     == category_slug]
     context = {'category': category_slug,
                'posts': sorted_posts}
