@@ -44,6 +44,7 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
+posts_tags = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -51,12 +52,11 @@ def index(request):
                   context={'posts': posts})
 
 
-def post_detail(request, id):
-    post = [post for post in posts if post['id'] == id]
-    if not post:
-        raise Http404('Вы указали неверный id')
-    context = {'post': post[0]}
-    return render(request, 'blog/detail.html', context)
+def post_detail(request, post_id):
+    if post_id not in posts_tags:
+        raise Http404('Пост с таким идентификатором не найден')
+    post = posts_tags[post_id]
+    return render(request, 'blog/detail.html', {'post_detail': post})
 
 
 def category_posts(request, category_slug):

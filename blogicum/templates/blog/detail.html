@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 <!DOCTYPE html>
-{% load static %}
-<html lang="ru"> 
+<html lang="ru">
    <body>
     <main>
       {% block content %}
@@ -9,18 +8,18 @@
         <article>
           <ul>
             <li>
-              Место: {{ location }}
+              Место: {{ post_detail.location }}
             </li>
             <li>
-              Дата: {{ date }}
+              Дата: {{ post_detail.date }}
             </li>
             <li>
-              Категория: {{ category }}
+              Категория: {{ post_detail.category }}
             </li>
-          </ul>         
+          </ul>
           <p>
-              {{ text|linebreaks }}
-          </p>          
+              {{ post_detail.text|linebreaksbr }}
+          </p>
         </article>
       </div>
       {% endblock %}
