@@ -56,7 +56,7 @@ def post_detail(request, post_id):
     if post_id not in posts_tags:
         raise Http404('Пост с таким идентификатором не найден')
     post = posts_tags[post_id]
-    return render(request, 'blog/detail.html', {'post_detail': post})
+    return render(request, 'blog/detail.html', {'post': post})
 
 
 def category_posts(request, category_slug):
